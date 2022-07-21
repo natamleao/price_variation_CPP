@@ -30,7 +30,6 @@ class List{
         void setSize(size_t size);
         EasterEggs *getBegin();
         void setBegin(EasterEggs *egg);
-        bool ListIsEmpty();
         void ListAdd(int identifier, float price);
         void ListDestroy();
         float ListEggsAveragePrice();

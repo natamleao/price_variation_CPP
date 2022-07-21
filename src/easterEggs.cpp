@@ -53,10 +53,6 @@ void List::setBegin(EasterEggs *egg){
     this->begin = egg;
 }
 
-bool List::ListIsEmpty(){
-    return this->getSize() == 0;
-}
-
 void List::ListAdd(int identifier, float price){
     EasterEggs *newEgg = new EasterEggs(identifier, price);
     newEgg->setNext(this->getBegin());
@@ -71,7 +67,7 @@ void List::ListDestroy(){
         delete previous;
     }
     this->setBegin(NULL);
-    this->setSize(-this->getSize());
+    this->setSize(-(this->getSize()));
 }
 
 float List::ListEggsAveragePrice(){
@@ -96,5 +92,7 @@ void List::ListEggsSearchPrice(){
             std::cout << "Ovo de Páscoa " << assistent->getIdentifier() << ": NEM GOSTO DE CHOCOLATE MESMO, MELHOR COMPRAR UMA BARRA DE OURO COM ESSE DINEHIRO" << std::endl;
         assistent = assistent->getNext();
     }
+    this->ListDestroy();
 }
+
 /**************************************************************************************************************************************************/
