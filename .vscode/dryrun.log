@@ -1,0 +1,11 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/natam/meus_arquivos/materias_segundo_periodo/estruturas_de_dados/trabalhos_terminados/price_variation_CPP'
+ 
+g++ -Wall -Werror  -c src/easterEggs.cpp -I ./include -o obj/easterEggs.o
+ 
+rm -rf ./bin/*
+ 
+g++ -Wall -Werror  apps/app.cpp ./obj/*.o -I ./include -o bin/app
+ 
+make: Leaving directory '/home/natam/meus_arquivos/materias_segundo_periodo/estruturas_de_dados/trabalhos_terminados/price_variation_CPP'
+ 
