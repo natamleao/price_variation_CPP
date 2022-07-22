@@ -1,4 +1,4 @@
-#include "easterEggs.h"
+#include "eggs.h"
 #include <iostream>
 
 int main(){
@@ -15,10 +15,11 @@ int main(){
     for(int i = 0; i < numberEggs; i++){
         std::cout << "INFORME O IDENTIFICADOR E O PREÇO DO " << (i + 1) << "º OVO: ";
         std::cin >> identifier, std::cin >> price;
-        listEggs->ListAdd(identifier, price);
+        listEggs->add(identifier, price);
     }
 
-    listEggs->ListEggsSearchPrice();
+    listEggs->eggsSearchPrice();
+    listEggs->destroy();
 
     return 0;
 }

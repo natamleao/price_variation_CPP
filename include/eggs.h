@@ -1,39 +1,39 @@
 /*************************************************************** PUBLIC INTERFACE *****************************************************************/
 
-#ifndef EASTEREGGS_H
-#define EASTEREGGS_H
+#ifndef EGGS_H
+#define EGGS_H
 
 #include <stddef.h>
 
-class EasterEggs{
+class Eggs{
     private:
         int identifier;
         float price;
-        EasterEggs *next;
+        Eggs *next;
     public:
-        EasterEggs(int identifier, float price);
+        Eggs(int identifier, float price);
         int getIdentifier();
         void setIdentifier(int identifier);
         float getPrice();
         void setPrice(float price);
-        EasterEggs *getNext();
-        void setNext(EasterEggs *next);
+        Eggs *getNext();
+        void setNext(Eggs *next);
 };
 
 class List{
     private:
         size_t size;
-        EasterEggs *begin;
+        Eggs *begin;
     public:
         List();
         size_t getSize();
         void setSize(size_t size);
-        EasterEggs *getBegin();
-        void setBegin(EasterEggs *egg);
-        void ListAdd(int identifier, float price);
-        void ListDestroy();
-        float ListEggsAveragePrice();
-        void ListEggsSearchPrice();
+        Eggs *getBegin();
+        void setBegin(Eggs *egg);
+        void add(int identifier, float price);
+        void destroy();
+        float eggsAveragePrice();
+        void eggsSearchPrice();
 };
 
 #endif
