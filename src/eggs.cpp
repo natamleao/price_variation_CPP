@@ -84,6 +84,7 @@ float List::eggsAveragePrice(){
 void List::eggsSearchPrice(){
     float priceHedging = this->eggsAveragePrice();
     Eggs *auxiliary = this->getBegin();
+    std::cout << "+---------------------------------- RESULTADO ---------------------------------+" << std::endl << std::endl;
     while(auxiliary != NULL){
         if(auxiliary->getPrice() < (priceHedging / 2))
             std::cout << "Ovo de Páscoa " << auxiliary->getIdentifier() << ": TALVEZ DÊ PARA COMPRAR" << std::endl;
@@ -91,6 +92,7 @@ void List::eggsSearchPrice(){
             std::cout << "Ovo de Páscoa " << auxiliary->getIdentifier() << ": ACHO QUE É MELHOR COMPRAR O VALOR EM BARRA DE CHOCOLATE" << std::endl;
         else
             std::cout << "Ovo de Páscoa " << auxiliary->getIdentifier() << ": MELHOR COMPRAR UMA BARRA DE OURO COM ESSE DINEHIRO" << std::endl;
+        std::cout << std::endl <<"+------------------------------------------------------------------------------+" << std::endl << std::endl;
         auxiliary = auxiliary->getNext();
     }
 }

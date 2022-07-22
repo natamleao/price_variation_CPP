@@ -17,6 +17,7 @@ int main(){
         std::cin >> identifier, std::cin >> price;
         listEggs->add(identifier, price);
     }
+    std::cout << std::endl;
 
     listEggs->eggsSearchPrice();
     listEggs->destroy();
