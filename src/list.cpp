@@ -20,7 +20,10 @@ void List::add(int identifier, float price){
     this->sizeIncrement(1);
 }
 
-void List::sizeIncrement(size_t size){this->size += size;}
+void List::sizeIncrement(size_t size){
+    if(size == 1 || -(this->getSize())){this->size += size;}
+    else{exit(EXIT_FAILURE);}
+}
 
 float List::averagePrice(){
     float sumEggPrices = 0.0;
