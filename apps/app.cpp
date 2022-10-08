@@ -22,7 +22,5 @@ int main(){
     listEggs->searchPrice();
     listEggs->~List();
 
-    std::cout << listEggs->getSize() << std::endl;
-
     return 0;
 }
