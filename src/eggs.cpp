@@ -9,69 +9,49 @@ Eggs::Eggs(int identifier, float price){
     this->next = NULL;
 }
 
-int Eggs::getIdentifier(){
-    return this->identifier;
-}
+int Eggs::getIdentifier(){return this->identifier;}
+float Eggs::getPrice(){return this->price;}
+Eggs *Eggs::getNext(){return this->next;}
+Eggs *List::getBegin(){return this->begin;}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+size_t List::getSize(){return this->size;}
 
 void Eggs::setIdentifier(int identifier){
-    this->identifier = identifier;
-}
-
-float Eggs::getPrice(){
-    return this->price;
+    if(identifier > 0){this->identifier = identifier;}
 }
 
 void Eggs::setPrice(float price){
-    this->price = price;
+    if(price > 0.0){this->price = price;}
 }
 
-Eggs *Eggs::getNext(){
-    return this->next;
-}
-
-void Eggs::setNext(Eggs *next){
-    this->next = next;
-}
+void Eggs::setNext(Eggs *next){this->next = next;}
 
 List::List(){
     this->size = 0;
     this->begin = NULL;
 }
 
-size_t List::getSize(){
-    return this->size;
-}
+void List::setBegin(Eggs *egg){this->begin = egg;}
 
-void List::setSize(size_t size){
-    this->size += size;
-}
-
-Eggs *List::getBegin(){
-    return this->begin;
-}
-
-void List::setBegin(Eggs *egg){
-    this->begin = egg;
-}
+void List::sizeIncrement(size_t size){this->size += size;}
 
 void List::add(int identifier, float price){
     Eggs *eggAlloc = new Eggs(identifier, price);
     eggAlloc->setNext(this->getBegin());
     this->setBegin(eggAlloc);
-    this->setSize(1);
+    this->sizeIncrement(1);
 }
 
-void List::destroy(){
+List::~List(){
     Eggs *previous = NULL, *actual = this->getBegin();
     while(actual != NULL){
         previous = actual, actual = actual->getNext();
         delete previous;
     }
     this->setBegin(NULL);
-    this->setSize(-(this->getSize()));
+    this->sizeIncrement(-(this->getSize()));
 }
 
-float List::eggsAveragePrice(){
+float List::averagePrice(){
     float sumEggPrices = 0.0;
     Eggs *auxiliary = this->getBegin();
     while(auxiliary != NULL){
@@ -81,8 +61,8 @@ float List::eggsAveragePrice(){
     return (sumEggPrices / this->getSize());
 }
 
-void List::eggsSearchPrice(){
-    float priceHedging = this->eggsAveragePrice();
+void List::searchPrice(){
+    float priceHedging = this->averagePrice();
     Eggs *auxiliary = this->getBegin();
     std::cout << "+---------------------------------- RESULTADO ---------------------------------+" << std::endl << std::endl;
     while(auxiliary != NULL){

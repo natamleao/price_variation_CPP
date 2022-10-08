@@ -19,8 +19,8 @@ int main(){
     }
     std::cout << std::endl;
 
-    listEggs->eggsSearchPrice();
-    listEggs->destroy();
+    listEggs->searchPrice();
+    listEggs->~List();
 
     return 0;
 }
