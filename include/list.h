@@ -1,3 +1,5 @@
+/*************************************************************** PUBLIC INTERFACE *****************************************************************/
+
 #ifndef LIST_H
 #define LIST_H
 
@@ -11,12 +13,15 @@ class List{
         List();
         size_t getSize();
         Eggs *getBegin();
+        void getSizeIncrement(size_t size); 
+        void setSize(size_t size);
         void setBegin(Eggs *egg);
         void add(int identifier, float price);
-        void sizeIncrement(size_t size);
         float averagePrice();
         void searchPrice();
         ~List();
 };
 
 #endif
+
+/**************************************************************************************************************************************************/

@@ -13,10 +13,10 @@ class Eggs{
     public:
         Eggs(int identifier, float price);
         int getIdentifier();
-        void setIdentifier(int identifier);
         float getPrice();
-        void setPrice(float price);
         Eggs *getNext();
+        void setIdentifier(int identifier);
+        void setPrice(float price);
         void setNext(Eggs *next);
 };
 

@@ -10,7 +10,9 @@ Eggs::Eggs(int identifier, float price){
 }
 
 int Eggs::getIdentifier(){return this->identifier;}
+
 float Eggs::getPrice(){return this->price;}
+
 Eggs *Eggs::getNext(){return this->next;}
 
 void Eggs::setIdentifier(int identifier){

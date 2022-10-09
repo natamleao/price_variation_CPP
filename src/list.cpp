@@ -4,12 +4,20 @@
 /*************************************************************** PRIVATE INTERFACE ****************************************************************/
 
 List::List(){
-    this->size = 0;
-    this->begin = NULL;
+    this->setSize(0);
+    this->setBegin(NULL);
 }
 
 size_t List::getSize(){return this->size;}
-Eggs *List::getBegin(){return this->begin;}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+
+Eggs *List::getBegin(){return this->begin;}  
+
+void List::getSizeIncrement(size_t size){
+    if(size == 1 || -(this->getSize())){this->size += size;}
+    else{exit(EXIT_FAILURE);}
+}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+
+void List::setSize(size_t size){this->size = size;}
 
 void List::setBegin(Eggs *egg){this->begin = egg;}
 
@@ -17,12 +25,7 @@ void List::add(int identifier, float price){
     Eggs *eggAlloc = new Eggs(identifier, price);
     eggAlloc->setNext(this->getBegin());
     this->setBegin(eggAlloc);
-    this->sizeIncrement(1);
-}
-
-void List::sizeIncrement(size_t size){
-    if(size == 1 || -(this->getSize())){this->size += size;}
-    else{exit(EXIT_FAILURE);}
+    this->getSizeIncrement(1);
 }
 
 float List::averagePrice(){
@@ -58,7 +61,7 @@ List::~List(){
         delete previous;
     }
     this->setBegin(NULL);
-    this->sizeIncrement(-(this->getSize()));
+    this->getSizeIncrement(-(this->getSize()));
 }
 
 /**************************************************************************************************************************************************/
